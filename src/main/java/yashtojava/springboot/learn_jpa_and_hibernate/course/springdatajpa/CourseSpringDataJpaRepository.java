@@ -9,4 +9,6 @@ import yashtojava.springboot.learn_jpa_and_hibernate.course.Course;
 public interface CourseSpringDataJpaRepository extends JpaRepository<Course, Long> {
 
 	List<Course> findByAuthor(String athor);
+
+	List<Course> findByNameContaining(String name);
 }

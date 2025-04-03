@@ -10,6 +10,8 @@ import yashtojava.springboot.learn_jpa_and_hibernate.course.Course;
 @Repository
 @Transactional
 public class CourseJpaRepository {
+	// @autowires can also be used but @persistancecontext is used for express
+	// dependancy on a container managed entitymanager
 	@PersistenceContext
 	private EntityManager entityManager;
 
@@ -23,7 +25,7 @@ public class CourseJpaRepository {
 
 	public void deleteById(long id) {
 		Course course = entityManager.find(Course.class, id);
-		 entityManager.remove(course);
+		entityManager.remove(course);
 	}
 
 }
